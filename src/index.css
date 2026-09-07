@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --color-obsidian: #08080b;
+  --color-champagne: #dfbe7d;
+  --color-gold-light: #f7e7c4;
+  --color-gold-dark: #a67c30;
+  --color-ivory: #f7f5f0;
+  --color-ivory-dim: #c9c4b7;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #060608;
+    color: #f7f5f0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Luxury satin surface highlights & 3D bevels */
+.satin-surface {
+  background: linear-gradient(180deg, rgba(28, 28, 34, 0.7) 0%, rgba(14, 14, 18, 0.85) 100%);
+  border: 1px solid rgba(223, 190, 125, 0.14);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 25px -5px rgba(223, 190, 125, 0.18), inset 0 1px 1px rgba(247, 231, 196, 0.25);
+}
+
+.instagram-surface {
+  background: linear-gradient(135deg, rgba(22, 18, 26, 0.9) 0%, rgba(16, 15, 22, 0.95) 100%);
+  border: 1px solid rgba(225, 48, 108, 0.2);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Subtle luxury metallic text */
+.text-metallic-gold {
+  background: linear-gradient(135deg, #FFF1D0 0%, #DFBE7D 50%, #B88E3E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes metallicShine {
+  0% {
+    background-position: -150% center;
+  }
+  35%, 100% {
+    background-position: 150% center;
+  }
+}
+
+.metallic-title-shine {
+  background: linear-gradient(
+    110deg,
+    #B88E3E 0%,
+    #DFBE7D 25%,
+    #FFF6E0 48%,
+    #FFFFFF 52%,
+    #FFF6E0 56%,
+    #DFBE7D 75%,
+    #A67C30 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: metallicShine 6.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.85));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metallic-title-shine {
+    animation: none;
+    background: linear-gradient(135deg, #FFF1D0 0%, #DFBE7D 50%, #B88E3E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Smooth scrollbar styling if any */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #060608;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(223, 190, 125, 0.2);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(223, 190, 125, 0.4);
+}
+

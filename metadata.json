@@ -1,0 +1,6 @@
+{
+  "name": "Pettit Parfum",
+  "description": "Mini site boutique de luxo da Pettit Parfum para bio do Instagram com catálogo visual 3D, fragrâncias importadas, árabes e inspiradas e atendimento exclusivo via WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
