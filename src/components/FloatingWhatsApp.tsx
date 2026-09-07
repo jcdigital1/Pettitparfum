@@ -56,10 +56,9 @@ export const FloatingWhatsApp: React.FC = () => {
           />
 
           {/* Official white WhatsApp symbol, 25px, flat and 100% proportional */}
-          <FaWhatsapp
-            size={25}
-            className="text-white relative z-10 drop-shadow-[0_1.5px_2px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-200"
-          />
+          <span className="text-white relative z-10 drop-shadow-[0_1.5px_2px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-200 flex items-center justify-center">
+            <FaWhatsapp size={25} color="#FFFFFF" />
+          </span>
         </a>
       </div>
     </div>

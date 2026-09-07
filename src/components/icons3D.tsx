@@ -31,7 +31,9 @@ export const WhatsAppBadge3D: React.FC<{ size?: number; iconSize?: number; class
       {/* Top specular curved sheen */}
       <div className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/55 to-transparent pointer-events-none rounded-t-full" />
       {/* Official unskewed, flat, authentic WhatsApp symbol */}
-      <FaWhatsapp size={iconSize} className="text-white relative z-10 drop-shadow-[0_1px_1.5px_rgba(0,0,0,0.4)]" />
+      <span className="text-white relative z-10 drop-shadow-[0_1px_1.5px_rgba(0,0,0,0.4)] flex items-center justify-center">
+        <FaWhatsapp size={iconSize} color="#FFFFFF" />
+      </span>
     </div>
   );
 };
@@ -60,7 +62,9 @@ export const InstagramBadge3D: React.FC<{ size?: number; iconSize?: number; clas
       {/* Top gloss specular highlight */}
       <div className="absolute inset-x-0 top-0 h-[48%] bg-gradient-to-b from-white/50 to-transparent pointer-events-none rounded-t-2xl" />
       {/* Official Instagram symbol */}
-      <FaInstagram size={iconSize} className="text-white relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]" />
+      <span className="text-white relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)] flex items-center justify-center">
+        <FaInstagram size={iconSize} color="#FFFFFF" />
+      </span>
     </div>
   );
 };
