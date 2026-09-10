@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Play, Pause, X, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
-import { PERFUME_IMAGES, BRAND_DATA } from "../types";
+import { PERFUME_IMAGES, PERFUME_REMOTE_IMAGES, BRAND_DATA } from "../types";
 import { WhatsAppBadge3D } from "./icons3D";
 
 interface Carousel3DProps {
@@ -12,7 +12,7 @@ export const Carousel3D: React.FC<Carousel3DProps> = ({ onSelectImage }) => {
 
   const [virtualIndex, setVirtualIndex] = useState<number>(0);
   const [isPaused, setIsPaused] = useState<boolean>(false);
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   // Drag interaction states
   const [dragOffset, setDragOffset] = useState<number>(0);
@@ -31,6 +31,7 @@ export const Carousel3D: React.FC<Carousel3DProps> = ({ onSelectImage }) => {
   useEffect(() => {
     PERFUME_IMAGES.forEach((src) => {
       const img = new Image();
+      img.referrerPolicy = "no-referrer";
       img.src = src;
       if (typeof img.decode === "function") {
         img.decode().catch(() => {});
@@ -66,7 +67,7 @@ export const Carousel3D: React.FC<Carousel3DProps> = ({ onSelectImage }) => {
 
   // 4. Smooth Autoplay Timer (every 3.8s)
   useEffect(() => {
-    if (isPaused || isDragging || lightboxImage) return;
+    if (isPaused || isDragging || lightboxIndex !== null) return;
 
     const interval = setInterval(() => {
       if (isIntersectingRef.current) {
@@ -75,7 +76,7 @@ export const Carousel3D: React.FC<Carousel3DProps> = ({ onSelectImage }) => {
     }, 3800);
 
     return () => clearInterval(interval);
-  }, [isPaused, isDragging, lightboxImage]);
+  }, [isPaused, isDragging, lightboxIndex]);
 
   // Navigation handlers
   const handlePrev = useCallback(() => {
@@ -128,7 +129,7 @@ export const Carousel3D: React.FC<Carousel3DProps> = ({ onSelectImage }) => {
 
     if (Math.abs(diff) < 0.4) {
       // Center card clicked -> open lightbox
-      setLightboxImage(PERFUME_IMAGES[index]);
+      setLightboxIndex(index);
       if (onSelectImage) onSelectImage(PERFUME_IMAGES[index]);
     } else {
       // Side card clicked -> transition it to center smoothly
@@ -230,7 +231,7 @@ export const Carousel3D: React.FC<Carousel3DProps> = ({ onSelectImage }) => {
             }}
           />
 
-          {/* Render ALL 16 carousel cards persistently to eliminate layout & decoding spikes */}
+          {/* Render ALL carousel cards persistently to eliminate layout & decoding spikes */}
           {PERFUME_IMAGES.map((imgSrc, index) => {
             // Shortest circular offset
             let diff = index - activeIndex;
@@ -298,6 +299,14 @@ export const Carousel3D: React.FC<Carousel3DProps> = ({ onSelectImage }) => {
                       loading="eager"
                       decoding="async"
                       draggable={false}
+                      referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        const fallback = PERFUME_REMOTE_IMAGES[index];
+                        if (fallback && target.src !== fallback) {
+                          target.src = fallback;
+                        }
+                      }}
                       className="w-full h-full object-contain object-center pointer-events-none drop-shadow-[0_8px_16px_rgba(0,0,0,0.6)]"
                     />
                   </div>
@@ -324,14 +333,14 @@ export const Carousel3D: React.FC<Carousel3DProps> = ({ onSelectImage }) => {
       </div>
 
       {/* Lightbox / Modal when center photo is clicked */}
-      {lightboxImage && (
+      {lightboxIndex !== null && (
         <div
           id="lightbox-perfume-modal"
           role="dialog"
           aria-modal="true"
           aria-label="Visualização detalhada do perfume"
           className="fixed inset-0 z-50 flex items-center justify-center bg-[#060608]/92 backdrop-blur-md p-4 sm:p-6"
-          onClick={() => setLightboxImage(null)}
+          onClick={() => setLightboxIndex(null)}
         >
           <div
             className="relative max-w-[440px] w-full bg-[#111116] border border-[#DFBE7D]/35 rounded-2xl p-5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.95)] flex flex-col items-center"
@@ -341,7 +350,7 @@ export const Carousel3D: React.FC<Carousel3DProps> = ({ onSelectImage }) => {
             <button
               id="btn-close-lightbox"
               type="button"
-              onClick={() => setLightboxImage(null)}
+              onClick={() => setLightboxIndex(null)}
               className="absolute top-3.5 right-3.5 w-9 h-9 rounded-full bg-[#1A1A22] border border-[#DFBE7D]/20 hover:border-[#DFBE7D]/60 text-[#DFBE7D] flex items-center justify-center transition-colors focus:outline-none"
               aria-label="Fechar visualização ampliada"
             >
@@ -351,8 +360,16 @@ export const Carousel3D: React.FC<Carousel3DProps> = ({ onSelectImage }) => {
             {/* Whole uncropped high-res photo */}
             <div className="w-full h-[350px] sm:h-[410px] rounded-xl overflow-hidden bg-[#0A0A0E] flex items-center justify-center p-2 mb-4">
               <img
-                src={lightboxImage}
-                alt="Perfume Pettit Parfum"
+                src={PERFUME_IMAGES[lightboxIndex]}
+                alt={`Perfume Pettit Parfum ${lightboxIndex + 1}`}
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  const fallback = PERFUME_REMOTE_IMAGES[lightboxIndex];
+                  if (fallback && target.src !== fallback) {
+                    target.src = fallback;
+                  }
+                }}
                 className="w-full h-full object-contain object-center drop-shadow-[0_12px_24px_rgba(0,0,0,0.8)]"
               />
             </div>
@@ -361,7 +378,7 @@ export const Carousel3D: React.FC<Carousel3DProps> = ({ onSelectImage }) => {
             <a
               id="btn-whatsapp-lightbox"
               href={`${BRAND_DATA.whatsappBaseUrl}?text=${encodeURIComponent(
-                `Olá vim pelo seu site e gostaria de saber mais sobre seus perfumes! Vi esta imagem na vitrine: ${lightboxImage}`
+                `Olá vim pelo seu site e gostaria de saber mais sobre este perfume da vitrine (Fragrância #${lightboxIndex + 1})!`
               )}`}
               target="_blank"
               rel="noopener noreferrer"
