@@ -33,5 +33,5 @@ export const BRAND_DATA = {
   instagramUrl: "https://www.instagram.com/pettitparfum/",
   instagramHandle: "@pettitparfum",
   logoUrl: "/assets/logo.png",
-  logoFallbackUrl: "https://i.postimg.cc/NF7DdzNn/Castanho-Moderno-Citacao-Inspiracional-Post-para-Instagram-1.png",
+  logoFallbackUrl: "https://i.postimg.cc/nVSJTjtp/Castanho-Moderno-Citacao-Inspiracional-Post-para-Instagram.png",
 };

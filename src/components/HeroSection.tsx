@@ -24,12 +24,12 @@ export const HeroSection: React.FC = () => {
         aria-hidden="true"
       />
 
-      {/* Brand Original Logo: Visible content occupying ~68-74% of mobile width up to 290px, and up to 340px on desktop */}
+      {/* Brand Original Logo: High-res transparent PNG displayed large and prominent */}
       <motion.div
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="relative w-[72vw] max-w-[290px] sm:max-w-[340px] flex items-center justify-center mb-2"
+        className="relative w-[88vw] max-w-[360px] sm:max-w-[440px] flex items-center justify-center my-3"
       >
         <img
           src={BRAND_DATA.logoUrl}
@@ -40,31 +40,21 @@ export const HeroSection: React.FC = () => {
               target.src = BRAND_DATA.logoFallbackUrl;
             }
           }}
-          alt="Pettit Parfum por Lara Rosa"
-          className="w-full h-auto object-contain object-center drop-shadow-[0_12px_28px_rgba(0,0,0,0.9)] filter contrast-[1.03]"
+          alt="Pettit Parfum"
+          className="w-full h-auto object-contain object-center drop-shadow-[0_12px_28px_rgba(0,0,0,0.9)] filter contrast-[1.05]"
         />
       </motion.div>
 
-      {/* Text Group */}
+      {/* Text Group directly below logo */}
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-        className="flex flex-col items-center max-w-[460px] mt-1"
+        className="flex flex-col items-center max-w-[480px] mt-2 mb-5 px-1"
       >
-        {/* Main Headline */}
-        <h1 className="text-[25px] sm:text-[30px] leading-[1.22] font-serif text-[#F7F5F0] font-normal tracking-wide mb-2.5">
-          Sua próxima paixão está aqui.
-        </h1>
-
-        {/* Subtitle with high contrast and legibility */}
-        <p className="text-[15px] sm:text-[16px] leading-relaxed text-[#D8D3C4] font-normal mb-2 max-w-[430px]">
-          Conheça nossos perfumes importados, árabes e inspirados, além de produtos para cuidar dos seus cabelos.
-        </p>
-
-        {/* Signature: Clearly readable, medium weight, distinct L, no all-caps */}
-        <p className="font-sans text-[14px] sm:text-[15px] text-[#DFBE7D] font-medium tracking-normal mb-5">
-          Por Lara Rosa
+        <p className="text-[15px] sm:text-[17px] leading-[1.62] text-[#E5E0D4] font-normal text-center">
+          Conheça nossos perfumes importados, árabes, e inspirados. Aqui você encontra também as{" "}
+          <span className="font-bold text-[#DFBE7D]">MELHORES</span> marcas de produtos para cuidar dos seus cabelos, incluindo linhas coreanas .
         </p>
       </motion.div>
 
