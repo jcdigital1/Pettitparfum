@@ -6,24 +6,6 @@ import { WhatsAppBadge3D } from "./icons3D";
 export const HeroSection: React.FC = () => {
   return (
     <header id="hero-abertura" className="w-full max-w-[540px] mx-auto px-5 pt-7 pb-4 flex flex-col items-center text-center relative">
-      {/* Diffuse Champagne Gold Silhouette Backlight behind Logo (Motion slow gentle breathing) */}
-      <motion.div
-        animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.32, 0.48, 0.32],
-        }}
-        transition={{
-          duration: 14,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="absolute top-6 left-1/2 -translate-x-1/2 w-64 h-64 sm:w-80 sm:h-80 rounded-full pointer-events-none -z-10 blur-3xl"
-        style={{
-          background: "radial-gradient(circle, #E5C173 0%, #A67C30 40%, rgba(18,17,22,0) 70%)",
-        }}
-        aria-hidden="true"
-      />
-
       {/* Brand Original Logo: High-res transparent PNG displayed large and prominent */}
       <motion.div
         initial={{ opacity: 0, y: 14 }}
@@ -41,7 +23,7 @@ export const HeroSection: React.FC = () => {
             }
           }}
           alt="Pettit Parfum"
-          className="w-full h-auto object-contain object-center drop-shadow-[0_12px_28px_rgba(0,0,0,0.9)] filter contrast-[1.05]"
+          className="w-full h-auto object-contain object-center"
         />
       </motion.div>
 
@@ -78,7 +60,7 @@ export const HeroSection: React.FC = () => {
           {/* 3D Circular WhatsApp Piece (approx 34px, unskewed official symbol) */}
           <WhatsAppBadge3D size={34} iconSize={19} />
 
-          <span className="text-[16px] sm:text-[17px] font-semibold tracking-wide text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+          <span className="text-[16px] sm:text-[17px] font-semibold tracking-wide text-white">
             Quero conhecer os produtos
           </span>
         </a>
