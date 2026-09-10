@@ -90,7 +90,7 @@ export const FooterSection: React.FC = () => {
             {/* Aligned Text */}
             <div className="flex flex-col text-left min-w-0">
               <span className="text-[15.5px] sm:text-[16.5px] font-semibold text-[#F7F5F0] tracking-wide group-hover:text-white transition-colors leading-snug">
-                Fale com Lara no WhatsApp
+                Fale com Iara no WhatsApp
               </span>
               <span className="text-[12.5px] sm:text-[13.5px] font-sans text-[#A7D7A0] font-normal truncate">
                 Tire suas dúvidas e consulte os produtos.
@@ -113,7 +113,7 @@ export const FooterSection: React.FC = () => {
         {/* Bottom Imprint with strictly correct name */}
         <div className="flex flex-col gap-1 text-center items-center">
           <p className="font-sans text-[14px] sm:text-[15px] text-[#DFBE7D] font-medium tracking-normal">
-            Pettit Parfum • Por Lara Rosa
+            Pettit Parfum • Por Iara Rosa
           </p>
           <p className="text-[12px] sm:text-[13px] text-[#9E988A] font-sans tracking-wide">
             Patrocínio–MG • Envio para todo o Brasil

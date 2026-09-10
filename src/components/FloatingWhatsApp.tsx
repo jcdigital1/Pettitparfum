@@ -40,7 +40,7 @@ export const FloatingWhatsApp: React.FC = () => {
           href={BRAND_DATA.defaultWhatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Falar com Lara no WhatsApp"
+          aria-label="Falar com Iara no WhatsApp"
           className="group relative w-[52px] h-[52px] sm:w-[56px] sm:h-[56px] rounded-full flex items-center justify-center transition-all duration-200 active:scale-95 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.7),0_4px_12px_rgba(34,197,94,0.35)]"
           style={{
             background: "linear-gradient(180deg, #22C55E 0%, #16A34A 52%, #15803D 100%)",

@@ -25,7 +25,7 @@ export const PERFUME_IMAGES: string[] = [
 
 export const BRAND_DATA = {
   name: "Pettit Parfum",
-  responsible: "Lara Rosa",
+  responsible: "Iara Rosa",
   phone: "(34) 99948-5437",
   whatsappBaseUrl: "https://wa.me/5534999485437",
   defaultWhatsappMessage: "Olá vim pelo seu site e gostaria de saber mais sobre seus perfumes!",

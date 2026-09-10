@@ -85,7 +85,7 @@ export const HeroSection: React.FC = () => {
 
         {/* Subtext below button */}
         <p className="text-[13px] sm:text-[14px] text-[#A8A190] mt-2.5 font-normal leading-normal">
-          Converse com Lara, consulte os valores e escolha seus favoritos.
+          Converse com Iara, consulte os valores e escolha seus favoritos.
         </p>
       </motion.div>
     </header>

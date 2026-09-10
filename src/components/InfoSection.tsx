@@ -19,7 +19,7 @@ const INFO_ROWS = [
     id: "regiao",
     icon: <LocationPin3DIcon size={52} />,
     title: "Patrocínio e região",
-    description: "Fale com Lara para consultar os produtos e combinar os detalhes da sua compra.",
+    description: "Fale com Iara para consultar os produtos e combinar os detalhes da sua compra.",
   },
   {
     id: "envio",

@@ -36,12 +36,12 @@ export const PurchaseCallSection: React.FC = () => {
 
         {/* Text */}
         <p className="text-[14.5px] sm:text-[15.5px] font-sans text-[#D5D0C2] font-normal leading-relaxed mb-6 max-w-[430px]">
-          Descubra fragrâncias importadas, árabes e inspiradas, além de produtos para cuidar dos seus cabelos. Fale com Lara, consulte as opções disponíveis e encontre seus novos favoritos.
+          Descubra fragrâncias importadas, árabes e inspiradas, além de produtos para cuidar dos seus cabelos. Fale com Iara, consulte as opções disponíveis e encontre seus novos favoritos.
         </p>
 
-        {/* Button: "Chamar Lara no WhatsApp" */}
+        {/* Button: "Chamar Iara no WhatsApp" */}
         <a
-          id="btn-chamar-lara-whatsapp"
+          id="btn-chamar-iara-whatsapp"
           href={BRAND_DATA.defaultWhatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
@@ -54,7 +54,7 @@ export const PurchaseCallSection: React.FC = () => {
           <WhatsAppBadge3D size={34} iconSize={19} />
 
           <span className="text-[16px] sm:text-[17px] font-semibold tracking-wide text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
-            Chamar Lara no WhatsApp
+            Chamar Iara no WhatsApp
           </span>
         </a>
       </motion.div>
