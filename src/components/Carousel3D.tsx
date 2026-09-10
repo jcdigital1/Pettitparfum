@@ -323,13 +323,6 @@ export const Carousel3D: React.FC<Carousel3DProps> = ({ onSelectImage }) => {
             );
           })}
         </div>
-
-        {/* Discreet slide indicator counter */}
-        <div className="flex items-center justify-center gap-2 mt-2">
-          <span className="text-[12px] font-sans text-[#DFBE7D]/85 tracking-widest uppercase font-medium">
-            Perfume {activeIndex + 1} de {TOTAL}
-          </span>
-        </div>
       </div>
 
       {/* Lightbox / Modal when center photo is clicked */}
